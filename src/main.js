@@ -6,7 +6,7 @@ import colors from 'vuetify/es5/util/colors';
 Vue.config.productionTip = false;
 Vue.use(Vuetify, {
     theme: {
-        primary: colors.green.darken1,
+        primary: '#28166F',
         secondary: colors.red.lighten4,
         accent: colors.indigo.base
     }

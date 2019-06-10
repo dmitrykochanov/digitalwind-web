@@ -1,16 +1,16 @@
 <template>
     <div id="app">
-        <SignIn/>
+        <Main/>
     </div>
 </template>
 
 <script>
-    import SignIn from './components/SignIn'
+    import Main from "@/components/Main";
 
     export default {
         name: 'app',
         components: {
-            SignIn
+            Main
         }
     }
 </script>
