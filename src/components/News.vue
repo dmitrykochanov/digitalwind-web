@@ -36,7 +36,6 @@
         box-sizing: border-box;
         margin-bottom: 40px;
     }
-
     .newsBody {
         text-align: justify;
     }

@@ -1,14 +1,12 @@
 <template>
     <v-layout>
         <v-flex xs12>
-            <v-container v-bind="{ [`grid-list-${size}`]: true }" fluid>
+            <v-container fluid>
                 <v-layout row wrap>
-                    <v-flex v-for="n in 9" :key="n" xs4>
+                    <v-flex v-for="item in pictures" :key="item.id" xs4>
                         <v-card>
-                            <v-img :src="`https://unsplash.it/150/300?image=${Math.floor(Math.random() * 100) + 1}`"
-                                   height="400px">
-                            </v-img>
-                            <v-card-title primary-title>897633</v-card-title>
+                            <v-img :src="item.imageUrl" height="400px"></v-img>
+                            <v-card-title primary-title>{{item.number}}</v-card-title>
                         </v-card>
                     </v-flex>
                 </v-layout>
@@ -18,11 +16,21 @@
 </template>
 
 <script>
+    import axios from 'axios';
+
     export default {
-        name: "Pictures"
+        created() {
+            axios.get('https://quiet-meadow-47713.herokuapp.com/pictures')
+                .then(response => this.pictures = response.data)
+        },
+        name: "Pictures",
+        data() {
+            return {
+                pictures: []
+            }
+        }
     }
 </script>
 
 <style scoped>
-
 </style>
