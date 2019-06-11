@@ -22,7 +22,7 @@
 
     export default {
         created() {
-            axios.get('https://quiet-meadow-47713.herokuapp.com/news')
+            axios.get('https://digitalwind-server.herokuapp.com/news')
                 .then(response => this.news = response.data)
         },
         name: "News",

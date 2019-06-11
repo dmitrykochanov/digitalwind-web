@@ -47,7 +47,7 @@
         }),
         methods: {
             performLogin: function () {
-                axios.post('https://quiet-meadow-47713.herokuapp.com/users/sign-in', {
+                axios.post('https://digitalwind-server.herokuapp.com/users/sign-in', {
                     login: this.login,
                     password: this.password
                 })
