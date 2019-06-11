@@ -1,5 +1,8 @@
 <template>
     <v-layout>
+        <v-flex xs12 v-if="news.length === 0" offset-xs5>
+            <v-progress-circular indeterminate></v-progress-circular>
+        </v-flex>
         <v-flex xs12>
             <v-card :key="item.id" v-for="item in news" class="spacer">
                 <v-img :src="item.imageUrl" aspect-ratio="2.75"></v-img>
@@ -32,10 +35,12 @@
 </script>
 
 <style scoped>
+
     .spacer {
         box-sizing: border-box;
         margin-bottom: 40px;
     }
+
     .newsBody {
         text-align: justify;
     }

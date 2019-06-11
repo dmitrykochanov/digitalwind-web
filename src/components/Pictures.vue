@@ -1,5 +1,8 @@
 <template>
     <v-layout>
+        <v-flex xs12 v-if="pictures.length === 0" offset-xs5>
+            <v-progress-circular indeterminate></v-progress-circular>
+        </v-flex>
         <v-flex xs12>
             <v-container fluid>
                 <v-layout row wrap>
