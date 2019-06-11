@@ -34,16 +34,16 @@
         name: "Toolbar",
         data: () => ({
             valid: false,
-            login: 'user1',
+            login: '',
             loginRules: [
                 v => !!v || 'Введите имя'
             ],
-            password: 'user1',
+            password: '',
             passwordRules: [
                 v => !!v || 'Введите пароль'
             ],
             isLoggedIn: false,
-            user_name: 'asdasd'
+            user_name: ''
         }),
         methods: {
             performLogin: function () {
