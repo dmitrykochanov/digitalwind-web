@@ -1,25 +1,12 @@
 <template>
     <v-layout>
         <v-flex xs12>
-            <v-card>
-                <v-img src="http://www.digitalwind.ru/images/dw2019.JPG" aspect-ratio="2.75"></v-img>
+            <v-card :key="item.id" v-for="item in news" class="spacer">
+                <v-img :src="item.imageUrl" aspect-ratio="2.75"></v-img>
                 <v-card-title primary-title>
                     <div>
-                        <h3 class="headline mb-0">В СГТУ наградили победителей конкурса «Цифровой ветер»</h3>
-                        <p class="newsBody">
-                            26 апреля 2019 г. в студенческом клубе Саратовского государственного технического
-                            университета имени Гагарина Ю.А. состоялась торжественная церемония награждения победителей
-                            ХVIII Международного конкурса компьютерных работ среди детей, юношества и студенческой
-                            молодежи «Цифровой ветер-2019». Финалистами конкурса стали 125 участников из России,
-                            Беларуси, Украины и Казахстана.
-
-                            В 2019 году в конкурсе было зарегистрировано 5184 работы из двухсот городов России,
-                            Белоруссии, Казахстана, Чехии, Эстонии, Сербии, Вьетнама, Китая, Словении, Украины.
-                            Региональные туры конкурса прошли в Саратове, Пензе, Липецке, Новосибирске.
-
-                            «Цифровой ветер-2019» проводился по 11 заочным номинациям и одной очной – в формате
-                            Всероссийского конкурса по трехмерному моделированию и визуализации «3D-день и 3D-ночь».
-                        </p>
+                        <h3 class="headline mb-0">{{item.title}}</h3>
+                        <p class="newsBody">{{item.body}}</p>
                     </div>
                 </v-card-title>
             </v-card>
@@ -28,12 +15,28 @@
 </template>
 
 <script>
+    import axios from 'axios';
+
     export default {
-        name: "News"
+        created() {
+            axios.get('https://quiet-meadow-47713.herokuapp.com/news')
+                .then(response => this.news = response.data)
+        },
+        name: "News",
+        data() {
+            return {
+                news: []
+            }
+        }
     }
 </script>
 
 <style scoped>
+    .spacer {
+        box-sizing: border-box;
+        margin-bottom: 40px;
+    }
+
     .newsBody {
         text-align: justify;
     }
