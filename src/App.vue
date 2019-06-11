@@ -7,11 +7,11 @@
         <v-content>
             <v-container grid-list-md text-xs-center fluid>
                 <v-layout row wrap>
-                    <v-flex xs1></v-flex>
+                    <v-flex lg1/>
                     <v-flex lg8>
                         <router-view></router-view>
                     </v-flex>
-                    <v-flex xs1></v-flex>
+                    <v-flex lg1/>
                     <v-flex lg2>
                         <Sponsors/>
                     </v-flex>
@@ -33,5 +33,5 @@
     }
 </script>
 
-<style>
+<style scoped>
 </style>
